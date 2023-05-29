@@ -4,38 +4,38 @@
         <div class="row">            
             <div class="col">
                 <br><br><br>
-                <h2 class="text-center">Estudiantes</h2>
-                <a href="{{ route('agregarEstudiante') }}" class="btn btn-primary">Agregar nuevo estudiante</a>
+                <h2 class="text-center">Lista de Estudiantes <i class="fa-solid fa-address-book"></i> </h2>
+                <a href="{{ route('agregarEstudiante') }}" class="btn btn-primary"> <i class="fa-solid fa-user-plus"></i> Agregar nuevo estudiante</a>
                 <table class="table table-sm">
                     <thead>
-                        <th>Nombre Completo</th>
-                        <th>Número de control</th>
-                        <th>Teléfono celular</th>
-                        <th>Carrera</th>
-                        <th>Fecha de nacimiento</th>
-                        <th>Escuela de procedencia</th>
-                        <th>Fecha de ingreso</th>
-                        <th>Editar</th>
-                        <th>Eliminar</th>
+                        <th class="text-center">Nombre Completo</th>
+                        <th class="text-center">Número de control</th>
+                        <th class="text-center">Teléfono celular</th>
+                        <th class="text-center">Carrera</th>
+                        <th class="text-center">Fecha de nacimiento</th>
+                        <th class="text-center">Escuela de procedencia</th>
+                        <th class="text-center">Fecha de ingreso</th>
+                        <th class="text-center">Editar</th>
+                        <th class="text-center">Eliminar</th>
                     </thead>
                     <tbody>
                         @foreach ($items as $item)
                             <tr>
-                                <td>{{ $item->nombre }}</td>
-                                <td>{{ $item->control }}</td>
-                                <td>{{ $item->celular }}</td>
-                                <td>{{ $item->carrera }}</td>
-                                <td>{{ $item->fecha_nac }}</td>
-                                <td>{{ $item->procedencia }}</td>
-                                <td>{{ $item->fecha_ingreso }}</td>
-                                <td>
+                                <td class="text-center">{{ $item->nombre }}</td>
+                                <td class="text-center">{{ $item->control }}</td>
+                                <td class="text-center">{{ $item->celular }}</td>
+                                <td class="text-center">{{ $item->carrera }}</td>
+                                <td class="text-center">{{ $item->fecha_nac }}</td>
+                                <td class="text-center">{{ $item->procedencia }}</td>
+                                <td class="text-center">{{ $item->fecha_ingreso }}</td>
+                                <td class="text-center">
                                     <a href="{{route('edit', $item->id)}}" class="btn btn-outline-warning">
-                                        Editar
+                                        <i class="fa-solid fa-pen-to-square"></i>
                                     </a>
                                 </td>
-                                <td>
+                                <td class="text-center">
                                     <a href="{{route('show', $item->id)}}" class="btn btn-outline-danger">
-                                        Eliminar
+                                        <i class="fa-solid fa-trash"></i>
                                     </a>
                                 </td>
                             </tr>

@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
 </head>
 <body>
+    @include('sweetalert::alert')
     @yield('contenido')
     <script src="{{ mix('js/app.js') }}"></script>
     <script src="{{ asset('js/scripts.js') }}"></script>

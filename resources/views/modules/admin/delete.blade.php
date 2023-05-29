@@ -20,8 +20,8 @@
                     <form action="{{route('destroy', $items->id)}}" method="POST">
                         @csrf
                         @method('DELETE')
-                        <a href="/lista" class="btn btn-outline-secondary mt-3">Regresar</a>
-                        <button class="btn btn-outline-danger mt-3">Eliminar</button>
+                        <a href="/lista" class="btn btn-outline-secondary mt-3">Regresar <i class="fa-solid fa-rotate-left"></i> </a>
+                        <button class="btn btn-outline-danger mt-3">Eliminar <i class="fa-solid fa-trash"></i> </button>
                     </form>
                 </h2>
             </div>

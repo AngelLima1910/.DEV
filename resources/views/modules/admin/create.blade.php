@@ -4,7 +4,7 @@
         <div class="row">
             <div class="col">
                 <br><br><br>
-                <h2 class="text-center">Agregar nuevo estudiante</h2>
+                <h2 class="text-center">Agregar nuevo estudiante <i class="fa-solid fa-user-plus"></i> </h2>
                 <form action="{{ route('registroNuevo') }}" method="POST">
                     @csrf
                     @method('POST')
@@ -33,8 +33,8 @@
                     <input type="text" class="form-control" name="procedencia" required>
                     <label for="">Fecha de ingreso</label>
                     <input type="date" class="form-control" name="fecha_ingreso" required>
-                    <button class="btn btn-primary mt-3">Agregar</button>
-                    <a href="{{ route('lista') }}" class="btn btn-info mt-3">Regresar</a>
+                    <button class="btn btn-primary mt-3"> <i class="fa-solid fa-user-plus"></i> Agregar</button>
+                    <a href="{{ route('lista') }}" class="btn btn-info mt-3"> <i class="fa-solid fa-rotate-left"></i> Regresar</a>
                 </form>
             </div>
         </div>

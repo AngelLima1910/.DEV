@@ -5,7 +5,7 @@
         <div class="masthead-content">
             <div class="container px-5">
                 <h1 class="masthead-heading mb-0">Creditos extraescolares</h1>
-                <a class="btn btn-primary btn-xl rounded-pill mt-5" href="{{ route('lista') }}">Listado de estudiantes</a>
+                <a class="btn btn-primary btn-xl rounded-pill mt-5" href="{{ route('lista') }}">Listado de estudiantes <i class="fa-solid fa-address-book"></i> </a>
             </div>
         </div>
         <div class="bg-circle-1 bg-circle"></div>

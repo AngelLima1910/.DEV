@@ -1,23 +1,23 @@
 <!-- Navigation-->
 <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
     <div class="container px-5">
-        <a class="navbar-brand" href="{{ route('inicio') }}">Inicio</a>
+        <a class="navbar-brand" href="{{ route('inicio') }}">Inicio <i class="fa-solid fa-house"></i> </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('agregarEstudiante') }}">
-                        Crédito deportivo
+                        Crédito deportivo <i class="fa-solid fa-volleyball"></i>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('agregarEstudiante') }}">
-                        Crédito cultural
+                        Crédito cultural <i class="fa-solid fa-palette"></i>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('agregarEstudiante') }}">
-                        Crédito civico
+                        Crédito civico <i class="fa-brands fa-font-awesome"></i>
                     </a>
                 </li>
                 <li class="nav-item">
