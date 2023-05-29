@@ -2,14 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 
 class AuthController extends Controller
 {
     public function login(){
         $titulo = 'Login'; 
+        if (Auth::check()) {
+            return redirect()->route('inicio');
+        }
         return view('modules/auth/index', compact('titulo'));
     }
     public function logear(Request $request){
@@ -24,6 +29,14 @@ class AuthController extends Controller
         Auth::logout();
         Session::flush();
         return redirect()->route('auth-login');
-
+    }
+    public function agregarUsuario() {
+        $item = new User();
+        $item->name = 'Admin';
+        $item->email = 'angellima200@hotmail.com';
+        $item->user = 'Admin';
+        $item->password = Hash::make('admin');
+        $item->save();
+        return $item;
     }
 }

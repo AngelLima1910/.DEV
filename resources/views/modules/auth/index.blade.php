@@ -1,10 +1,14 @@
 @extends('../../layouts/main')
 @section('contenido')
-    <div class="container">
+    <div class="container" style="background: https://img.freepik.com/fotos-premium/fondo-triangular-colorido-patron-triangular_574545-1478.jpg">
         <div class="row">
             <div class="col">
                 <div class="login-form">
-                    <h1>.DEV</h1>
+                    <h1>Orion System</h1>
+                    <div class="text-center">
+                        <img src="{{ asset('img/orion.jpg') }} " height="50%" width="50%">
+                    </div>
+                    <br>
                     <form action="{{ route('logear') }}" method="post">
                         @csrf
                         @method('POST')
