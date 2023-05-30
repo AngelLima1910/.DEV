@@ -6,18 +6,8 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('agregarEstudiante') }}">
-                        Crédito deportivo <i class="fa-solid fa-volleyball"></i>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('agregarEstudiante') }}">
-                        Crédito cultural <i class="fa-solid fa-palette"></i>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('agregarEstudiante') }}">
-                        Crédito civico <i class="fa-brands fa-font-awesome"></i>
+                    <a class="nav-link" href="{{ route('creditos') }}">
+                        Creditos <i class="fa-brands fa-font-awesome"></i>
                     </a>
                 </li>
                 <li class="nav-item">

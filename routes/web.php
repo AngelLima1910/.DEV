@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Admins;
+use App\Http\Controllers\Creditos;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [AuthController::class, 'login'])->name('auth-login');
@@ -18,3 +19,7 @@ Route::get('/show/{id}', [Admins::class, 'show'])->name('show');
 Route::delete('/destroy/{id}', [Admins::class, 'destroy'])->name('destroy');
 Route::get('/edit/{id}', [Admins::class, 'edit'])->name('edit');
 Route::put('/update/{id}', [Admins::class, 'update'])->name('update');
+
+Route::get('/creditos', [Creditos::class, 'index'])->name('creditos');
+Route::get('/agregarCredito', [Creditos::class, 'agregarCredito'])->name('creditoNuevo');
+Route::post('/guardar', [Creditos::class, 'guardarArchivos'])->name('guardarArchivos');

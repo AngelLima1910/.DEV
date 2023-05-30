@@ -23,7 +23,7 @@
                 <div class="col-lg-6 order-lg-1">
                     <div class="p-5">
                         <h2 class="display-4">Credito deportivo</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod aliquid, mollitia odio veniam sit iste esse assumenda amet aperiam exercitationem, ea animi blanditiis recusandae! Ratione voluptatum molestiae adipisci, beatae obcaecati.</p>
+                        <p>Esta actividad tiene como competencias adquirir destresa y salud para los alumnos de dicho instituto.</p>
                     </div>
                 </div>
             </div>
@@ -39,7 +39,7 @@
                 <div class="col-lg-6">
                     <div class="p-5">
                         <h2 class="display-4">Credito cultural</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod aliquid, mollitia odio veniam sit iste esse assumenda amet aperiam exercitationem, ea animi blanditiis recusandae! Ratione voluptatum molestiae adipisci, beatae obcaecati.</p>
+                        <p>Esta actividad tiene como proposito incentivar y dar a conocer a los alumnos las tradicones  que tiene nuestra institucion y pueblo en donde se desarrollo el ambiente estudiantil.</p>
                     </div>
                 </div>
             </div>
@@ -55,7 +55,7 @@
                 <div class="col-lg-6 order-lg-1">
                     <div class="p-5">
                         <h2 class="display-4">Credito civico</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod aliquid, mollitia odio veniam sit iste esse assumenda amet aperiam exercitationem, ea animi blanditiis recusandae! Ratione voluptatum molestiae adipisci, beatae obcaecati.</p>
+                        <p>Este actividad tiene como funcion que los estudiantes cuenten con los conocimientos historicos y acontecimietnos importantes de su pais </p>
                     </div>
                 </div>
             </div>

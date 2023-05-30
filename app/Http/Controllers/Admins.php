@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Alumno;
+use App\Models\Carrera;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 
@@ -40,7 +41,8 @@ class Admins extends Controller
     public function create()
     {
         $titulo = 'Agregar estudiante';
-        return view('modules/admin/create', compact('titulo'));
+        $items = Carrera::all();
+        return view('modules/admin/create', compact('titulo', 'items'));
     }
 
     /**

@@ -13,6 +13,8 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
         <link rel="stylesheet" href="{{ asset('css/inicio.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/responsive.dataTables.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/jquery.dataTables.min.css') }}">
     </head>
     <body id="page-top">
         @include('sweetalert::alert')
@@ -20,7 +22,11 @@
         @yield('contenido')
         
         <!-- Core theme JS-->
+        <script src="{{ asset('js/jquery.js') }}"></script>
         <script src="{{ mix('js/app.js') }}"></script>
         <script src="{{ asset('js/scripts.js') }}"></script>
+        <script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
+        <script src="{{ asset('js/dataTables.responsive.min.js') }}"></script>
+        <script src="{{ asset('js/main.js') }}"></script>
     </body>
 </html>
