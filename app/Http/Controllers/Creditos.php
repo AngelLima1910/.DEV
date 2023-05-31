@@ -14,10 +14,17 @@ class Creditos extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->middleware(['auth'])->only(['index']); 
+    }
+
     public function index()
     {
         $titulo = 'Creditos';
-        return view('modules/admin/creditos/index', compact('titulo'));
+        $items3 = Credito::all();
+        return view('modules/admin/creditos/index', compact('titulo', 'items3'));
     }
 
     /**
@@ -40,34 +47,18 @@ class Creditos extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function mform() {
-        return view('mform');
-    }
-
-    public function mguardar(Request $request) {
-        if ($request->hasFile("urlpdf")) {
-            $file=$request->file("urlpdf");
-            $mooc = "pdf_".time().".".$file->guessExtension();
-            $ruta = public_path("pdf/".$mooc);
-            if ($file->guessExtension()=="pdf") {
-                copy($file, $ruta);
-            } else {
-                dd("No es un archivo PDF");
-            }
-        }
-    }
-    
     public function guardarArchivos(Request $request)
     {
         $item = new Credito();
         $item->credito = $request->credito;
-        $item->celular = $request->celular;
-        $item->carrera = $request->carrera;
-        $item->fecha_nac = $request->fecha_nac;
-        $item->procedencia = $request->procedencia;
-        $item->fecha_ingreso = $request->fecha_ingreso;
+        $item->mooc = $request->file('mooc')->store('public');
+        $item->evidencia = $request->file('evidencia')->store('public');
+        $item->estudiante = $request->estudiante;
+        $item->estatus = $request->estatus;
+        $item->carpeta = $request->carpeta;
+        $item->fecha_registro = $request->fecha_registro;
         $item->save();
-        return redirect('/lista');
+        return redirect('/creditos');
     }
 
     /**

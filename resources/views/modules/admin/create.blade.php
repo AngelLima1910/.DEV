@@ -29,8 +29,8 @@
                     <input type="text" class="form-control" name="procedencia" placeholder="Ingresa la escuela de procedencia" required>
                     <label for="">Fecha de ingreso</label>
                     <input type="date" class="form-control" name="fecha_ingreso" required>
-                    <button class="btn btn-primary mt-3"> <i class="fa-solid fa-user-plus"></i> Agregar</button>
-                    <a href="{{ route('lista') }}" class="btn btn-info mt-3"> <i class="fa-solid fa-rotate-left"></i> Regresar</a>
+                    <button class="btn btn-outline-primary mt-3"> <i class="fa-solid fa-user-plus"></i> Agregar</button>
+                    <a href="{{ route('lista') }}" class="btn btn-outline-info mt-3"> <i class="fa-solid fa-rotate-left"></i> Regresar</a>
                 </form>
             </div>
         </div>

@@ -6,14 +6,23 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
+                    <a class="nav-link" href="{{ route('lista') }}">
+                        Estudiantes <i class="fa-solid fa-address-book"></i>
+                    </a>
+                </li><li class="nav-item">
                     <a class="nav-link" href="{{ route('creditos') }}">
-                        Creditos <i class="fa-brands fa-font-awesome"></i>
+                        Créditos <i class="fa-brands fa-font-awesome"></i>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" style="color:red" href="{{ route('logout')}}"> <i class="fa-solid fa-arrow-right-from-bracket"></i> 
-                        Salir
+                <li class="nav-item dropdown">
+                    <a style="color: aqua" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fa-solid fa-user"></i> {{ auth()->user()->name }}
                     </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="nav-link" style="color:red" href="{{ route('logout')}}"> <i class="fa-solid fa-arrow-right-from-bracket"></i> 
+                            Salir
+                        </a>
+                    </ul>
                 </li>
             </ul>
         </div>

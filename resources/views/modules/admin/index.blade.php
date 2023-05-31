@@ -5,7 +5,7 @@
             <div class="col">
                 <br><br><br>
                 <h2 class="text-center">Lista de Estudiantes <i class="fa-solid fa-address-book"></i> </h2>
-                <a href="{{ route('agregarEstudiante') }}" class="btn btn-primary"> <i class="fa-solid fa-user-plus"></i> Agregar nuevo estudiante</a>
+                <a href="{{ route('agregarEstudiante') }}" class="btn btn-outline-primary"> <i class="fa-solid fa-user-plus"></i></a>
                 <table class="table table-sm display responsive nowrap mt-4" style="width: 100%" id="table">
                     <thead>
                         <th class="text-center">Nombre Completo</th>

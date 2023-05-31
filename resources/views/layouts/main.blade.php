@@ -7,6 +7,7 @@
     <title>{{ $titulo }}</title>
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+    <link rel="shortcut icon" href="{{ asset('img/orion.ico') }}" type="image/x-icon">
 </head>
 <body>
     @include('sweetalert::alert')

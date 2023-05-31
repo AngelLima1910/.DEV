@@ -33,9 +33,9 @@ class AuthController extends Controller
     }
     public function agregarUsuario() {
         $item = new User();
-        $item->name = 'Admin';
+        $item->name = 'admin';
         $item->email = 'angellima200@hotmail.com';
-        $item->user = 'Admin';
+        $item->user = 'admin';
         $item->password = Hash::make('admin');
         $item->save();
         return $item;

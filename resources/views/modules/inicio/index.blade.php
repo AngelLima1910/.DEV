@@ -4,8 +4,7 @@
     <header class="masthead text-center text-white">
         <div class="masthead-content">
             <div class="container px-5">
-                <h1 class="masthead-heading mb-0">Creditos extraescolares</h1>
-                <a class="btn btn-primary btn-xl rounded-pill mt-5" href="{{ route('lista') }}">Listado de estudiantes <i class="fa-solid fa-address-book"></i> </a>
+                <h1 class="masthead-heading mb-0">Créditos extraescolares</h1>
             </div>
         </div>
         <div class="bg-circle-1 bg-circle"></div>
@@ -22,8 +21,8 @@
                 </div>
                 <div class="col-lg-6 order-lg-1">
                     <div class="p-5">
-                        <h2 class="display-4">Credito deportivo</h2>
-                        <p>Esta actividad tiene como competencias adquirir destresa y salud para los alumnos de dicho instituto.</p>
+                        <h2 class="display-4">Crédito deportivo</h2>
+                        <p>Esta actividad tiene como competencias adquirir destreza y salud para los alumnos de dicho instituto.</p>
                     </div>
                 </div>
             </div>
@@ -38,8 +37,8 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="p-5">
-                        <h2 class="display-4">Credito cultural</h2>
-                        <p>Esta actividad tiene como proposito incentivar y dar a conocer a los alumnos las tradicones  que tiene nuestra institucion y pueblo en donde se desarrollo el ambiente estudiantil.</p>
+                        <h2 class="display-4">Crédito cultural</h2>
+                        <p>Esta actividad tiene como propósito incentivar y dar a conocer a los alumnos las tradiciones que tiene nuestra institución y pueblo en donde se desarrolló el ambiente estudiantil.</p>
                     </div>
                 </div>
             </div>
@@ -54,8 +53,8 @@
                 </div>
                 <div class="col-lg-6 order-lg-1">
                     <div class="p-5">
-                        <h2 class="display-4">Credito civico</h2>
-                        <p>Este actividad tiene como funcion que los estudiantes cuenten con los conocimientos historicos y acontecimietnos importantes de su pais </p>
+                        <h2 class="display-4">Crédito cívico</h2>
+                        <p>Esta actividad tiene como función que los estudiantes cuenten con los conocimientos históricos y acontecimientos importantes de su país.</p>
                     </div>
                 </div>
             </div>

@@ -15,6 +15,7 @@
         <link rel="stylesheet" href="{{ asset('css/inicio.css') }}">
         <link rel="stylesheet" href="{{ asset('css/responsive.dataTables.min.css') }}">
         <link rel="stylesheet" href="{{ asset('css/jquery.dataTables.min.css') }}">
+        <link rel="shortcut icon" href="{{ asset('img/orion.ico') }}" type="image/x-icon">
     </head>
     <body id="page-top">
         @include('sweetalert::alert')

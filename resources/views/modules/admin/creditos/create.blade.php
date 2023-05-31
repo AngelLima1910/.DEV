@@ -4,27 +4,27 @@
         <div class="row">
             <div class="col">
                 <br><br><br>
-                <h2 class="text-center">Agregar nuevo crédito <i class="fa-solid fa-user-plus"></i> </h2>
+                <h2 class="text-center">Agregar crédito nuevo <i class="fa-solid fa-user-plus"></i> </h2>
                 <form action="{{ route('guardarArchivos') }}" method="POST" enctype="multipart/form-data">
-                    @csrf
+                    {{ csrf_field() }}
                     @method('POST')
-                    <label for="">Credito</label>
-                    <select name="credito" id="credito" class="form-control">
-                        <option value="">Selecciona el credito</option>
+                    <label for="">Crédito</label>
+                    <select name="credito" id="credito" class="form-control" required>
+                        <option value="">Selecciona el crédito</option>
                         @foreach ($items as $item)
                             <option value="{{$item->nombre}}">
                                 {{$item->nombre}}
                             </option>
                         @endforeach
                     </select>
-                    <label for="">Mooc</label>
-                    <input type="file" class="form-control" name="urlpdf" required>
-                    <input type="submit" value="Subir Archivo" class="form-control">
-                    <label for="">Evidencia o contancia</label>
-                    <input type="file" class="form-control" name="urlpdf" required>
-                    <input type="submit" value="Subir Archivo" class="form-control">
+                    <label for="mooc"><b>Mooc: </b></label><br>
+                    <input type="file" name="mooc" required><br>
+                    <input class="btn btn-success" type="submit" value="Enviar"><br>
+                    <label for="evidencia"><b>Evidencia o constancia: </b></label><br>
+                    <input type="file" name="evidencia" required><br>
+                    <input class="btn btn-success" type="submit" value="Enviar"><br>
                     <label for="">Estudiante</label>
-                    <select name="credito" id="credito" class="form-control">
+                    <select name="estudiante" class="form-control" required>
                         <option value="">Selecciona el estudiante</option>
                         @foreach ($items2 as $item2)
                             <option value="{{$item2->nombre}}">
@@ -33,9 +33,9 @@
                         @endforeach
                     </select>
                     <label for="">Estatus</label>
-                    <select name="estatus" id="estatus" class="form-control">
-                        <option value="">Selecciona una opcion</option>
-                        <option value="En tramite">En tramite</option>
+                    <select name="estatus" id="estatus" class="form-control" required>
+                        <option value="">Selecciona una opción</option>
+                        <option value="En trámite">En trámite</option>
                         <option value="Liberado">Liberado</option>
                     </select>
                     <label for="">Carpeta</label>

@@ -33,8 +33,8 @@
                     <input type="text" class="form-control" name="procedencia" value="{{$items->procedencia}}" required>
                     <label for="">Fecha de ingreso</label>
                     <input type="date" class="form-control" name="fecha_ingreso" value="{{$items->fecha_ingreso}}" required>
-                    <button class="btn btn-warning mt-3"> Actualizar <i class="fa-solid fa-pen-to-square"></i> </button>
-                    <a href="{{ route('lista') }}" class="btn btn-info mt-3">Regresar <i class="fa-solid fa-rotate-left"></i> </a>
+                    <button class="btn btn-outline-warning mt-3"> Actualizar <i class="fa-solid fa-pen-to-square"></i> </button>
+                    <a href="{{ route('lista') }}" class="btn btn-outline-info mt-3">Regresar <i class="fa-solid fa-rotate-left"></i> </a>
                 </form>
             </div>
         </div>
