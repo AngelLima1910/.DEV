@@ -15,10 +15,12 @@ class CreateTCreditosTable extends Migration
     {
         Schema::create('t_creditos', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('id_alumnos');
             $table->string('credito');
             $table->string('mooc');
             $table->string('evidencia');
             $table->string('estudiante');
+            $table->string('periodo');
             $table->string('estatus');
             $table->string('carpeta');
             $table->date('fecha_registro');

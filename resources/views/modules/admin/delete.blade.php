@@ -10,6 +10,8 @@
                     El registro a eliminar es
                     <ul>
                         <li>Nombre: {{$items->nombre}}</li>
+                        <li>Apellido Paterno: {{$items->paterno}}</li>
+                        <li>Apellido Materno: {{$items->materno}}</li>
                         <li>Número de control: {{$items->control}}</li>
                         <li>Teléfono Celular: {{$items->celular}}</li>
                         <li>Carrera: {{$items->carrera}}</li>

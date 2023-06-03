@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Alumno;
 use App\Models\catCredito;
 use App\Models\Credito;
+use App\Models\Periodo;
 use Illuminate\Http\Request;
 
 class Creditos extends Controller
@@ -37,7 +38,8 @@ class Creditos extends Controller
         $titulo = 'Agregar creditos';
         $items = catCredito::all();
         $items2 = Alumno::all();
-        return view('modules/admin/creditos/create', compact('titulo', 'items', 'items2'));
+        $items4 = Periodo::all();
+        return view('modules/admin/creditos/create', compact('titulo', 'items', 'items2', 'items4'));
     }
 
     /**
@@ -54,6 +56,7 @@ class Creditos extends Controller
         $item->mooc = $request->file('mooc')->store('public');
         $item->evidencia = $request->file('evidencia')->store('public');
         $item->estudiante = $request->estudiante;
+        $item->periodo = $request->periodo;
         $item->estatus = $request->estatus;
         $item->carpeta = $request->carpeta;
         $item->fecha_registro = $request->fecha_registro;
@@ -78,9 +81,13 @@ class Creditos extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function editarArchivos($id)
     {
-        //
+        $titulo = 'Actualizar creditos';
+        $items = catCredito::find($id);
+        $items2 = Alumno::find($id);
+        $items4 = Periodo::find($id);
+        return view('modules/admin/creditos/edit', compact('titulo', 'items', 'items2', 'items4'));
     }
 
     /**
@@ -90,9 +97,19 @@ class Creditos extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function actualizarArchivos(Request $request, $id)
     {
-        //
+        $item = Credito::find($id);
+        $item->credito = $request->credito;
+        $item->mooc = $request->file('mooc')->store('public');
+        $item->evidencia = $request->file('evidencia')->store('public');
+        $item->estudiante = $request->estudiante;
+        $item->periodo = $request->periodo;
+        $item->estatus = $request->estatus;
+        $item->carpeta = $request->carpeta;
+        $item->fecha_registro = $request->fecha_registro;
+        $item->save();
+        return redirect('/creditos');
     }
 
     /**

@@ -8,8 +8,12 @@
                 <form action="{{ route('registroNuevo') }}" method="POST">
                     @csrf
                     @method('POST')
-                    <label for="">Nombre completo</label>
-                    <input type="text" class="form-control" name="nombre" placeholder="Ingresa el nombre completo" required>
+                    <label for="">Nombre(s)</label>
+                    <input type="text" class="form-control" name="nombre" placeholder="Ingresa tú nombre" required>
+                    <label for="">Apellido Paterno</label>
+                    <input type="text" class="form-control" name="paterno" placeholder="Ingresa tú apellido paterno" required>
+                    <label for="">Apellido Materno</label>
+                    <input type="text" class="form-control" name="materno" placeholder="Ingresa tú apellido materno" required>
                     <label for="">Número de control</label>
                     <input type="tel" maxlength="9" onkeypress="return valideKey(event);" class="form-control" name="control" placeholder="Ingresa el número de control" required>
                     <label for="">Telefono celular</label>
@@ -18,7 +22,7 @@
                     <select name="carrera" id="carrera" class="form-control">
                         <option value="">Selecciona la carrera</option>
                         @foreach ($items as $item)
-                            <option value="{{$item->nombre}}">
+                            <option value="{{$item->id}}">
                                 {{$item->nombre}}
                             </option>
                         @endforeach

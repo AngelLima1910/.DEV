@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Alumno;
 use App\Models\Carrera;
+use App\Models\listadoAlumno;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 
@@ -33,7 +35,7 @@ class Admins extends Controller
 
     public function lista() 
     {
-        $items = Alumno::all();
+        $items = listadoAlumno::all();
         $titulo = 'Listado de estudiantes';
         return view('modules/admin/index', compact('titulo', 'items'));
     }
@@ -52,9 +54,12 @@ class Admins extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
+    {   
         $item = new Alumno();
         $item->nombre = $request->nombre;
+        $item->paterno = $request->paterno;
+        $item->materno = $request->materno;
+        $item->id_carrera = $request->carrera;
         $item->control = $request->control;
         $item->celular = $request->celular;
         $item->carrera = $request->carrera;
@@ -63,6 +68,14 @@ class Admins extends Controller
         $item->fecha_ingreso = $request->fecha_ingreso;
         $item->save();
         return redirect('/lista');
+    }
+
+    public function calcularEdad($fecha_nac){
+        // Convertir la fecha de nacimiento en un objeto Carbon
+        $fecha_nac = Carbon::createFromFormat('Y-m-d', $fecha_nac);
+        // Calcular la edad usando el método diffInYears()    
+        $edad = $fecha_nac->diffInYears(Carbon::now());
+        return $edad;
     }
 
     /**
@@ -88,7 +101,8 @@ class Admins extends Controller
     {
         $titulo = 'Editar registro';
         $items = Alumno::find($id);
-        return view('modules/admin/edit', compact('titulo', 'items'));
+        $items2 = Carrera::all();
+        return view('modules/admin/edit', compact('titulo', 'items', 'items2'));
     }
 
     /**
@@ -102,6 +116,9 @@ class Admins extends Controller
     {
         $item = Alumno::find($id);
         $item->nombre = $request->nombre;
+        $item->paterno = $request->paterno;
+        $item->materno = $request->materno;
+        $item->id_carrera = $request->carrera;
         $item->control = $request->control;
         $item->celular = $request->celular;
         $item->carrera = $request->carrera;
@@ -119,7 +136,7 @@ class Admins extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
-    {
+    {   
         $item = Alumno::find($id);
         $item->delete();
         return redirect('/lista');

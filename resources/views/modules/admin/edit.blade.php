@@ -4,28 +4,35 @@
         <div class="row">
             <div class="col">
                 <br><br><br>
-                <h2 class="text-center">Editar estudiante <i class="fa-solid fa-user-pen"></i></h2>
+                <h2 class="text-center">Editar estudiante <i class="fa-solid fa-user-pen"></i> </h2>
                 <form action="{{ route('update', $items->id) }}" method="POST">
                     @csrf
                     @method('PUT')
-                    <label for="">Nombre completo</label>
-                    <input type="text" class="form-control" name="nombre" value="{{$items->nombre}}" required>
+                    <label for="">Nombre(s)</label>
+                    <input type="text" class="form-control" name="nombre" required value="{{ $items->nombre }}">
+                    <label for="">Apellido Paterno</label>
+                    <input type="text" class="form-control" name="paterno" required value="{{ $items->paterno }}">
+                    <label for="">Apellido Materno</label>
+                    <input type="text" class="form-control" name="materno" required value="{{ $items->materno }}">
                     <label for="">Número de control</label>
-                    <input type="tel" maxlength="9" class="form-control" name="control" value="{{$items->control}}" required>
+                    <input type="tel" maxlength="9" onkeypress="return valideKey(event);" class="form-control" name="control" value="{{$items->control}}" required>
                     <label for="">Telefono celular</label>
-                    <input type="tel" maxlength="10" class="form-control" name="celular" value="{{$items->celular}}" required>
+                    <input type="tel" maxlength="10" onkeypress="return valideKey(event);" class="form-control" name="celular" value="{{$items->celular}}" required>
                     <label for="">Elige tu carrera</label>
-                    <select class="form-select" name="carrera" required>
-                        <option selected>Selecciona tu carrera</option>
-                        <option value="Ing. en Sistemas Computacionales">
-                            Ing. en Sistemas Computacionales
-                        </option>
-                        <option value="Ing. en Gestion Empresarial">
-                            Ing. en Gestion Empresarial
-                        </option>
-                        <option value="Ing. Industrial">
-                            Ing. Industrial
-                        </option>
+                    <label for="">Carrera</label>
+                    <select name="carrera" id="carrera" class="form-control">
+                        <option value="">Selecciona la carrera</option>
+                        @foreach ($items2 as $carrera)
+                            @if ($carrera->id == $items->id_carrera)
+                                <option value="{{$carrera->id}}" selected>
+                                    {{$carrera->nombre}}
+                                </option>
+                            @else
+                            <option value="{{$carrera->id}}">
+                                {{$carrera->nombre}}
+                            </option>
+                            @endif
+                        @endforeach
                     </select>
                     <label for="">Fecha de nacimiento</label>
                     <input type="date" class="form-control" name="fecha_nac" value="{{$items->fecha_nac}}" required>
