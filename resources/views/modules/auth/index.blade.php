@@ -1,4 +1,4 @@
-@extends('../../layouts/main')
+@extends('../layouts/main')
 @section('contenido')
     <div class="container" style="background: https://img.freepik.com/fotos-premium/fondo-triangular-colorido-patron-triangular_574545-1478.jpg">
         <div class="row">

@@ -14,8 +14,10 @@ class CreateTCreditosTable extends Migration
     public function up()
     {
         Schema::create('t_creditos', function (Blueprint $table) {
-            $table->id();
-            $table->bigInteger('id_alumnos');
+            $table->increments('id');
+            $table->unsignedInteger('id_alumnos');
+            $table->unsignedInteger('id_creditos');
+            $table->unsignedInteger('id_periodos');
             $table->string('credito');
             $table->string('mooc');
             $table->string('evidencia');
@@ -25,6 +27,9 @@ class CreateTCreditosTable extends Migration
             $table->string('carpeta');
             $table->date('fecha_registro');
             $table->timestamps();
+            $table->foreign('id_alumnos')->references('id')->on('t_alumnos');
+            $table->foreign('id_creditos')->references('id')->on('t_cat_creditos');
+            $table->foreign('id_periodos')->references('id')->on('t_cat_periodos');
         });
     }
 

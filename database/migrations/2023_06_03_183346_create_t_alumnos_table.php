@@ -14,8 +14,11 @@ class CreateTAlumnosTable extends Migration
     public function up()
     {
         Schema::create('t_alumnos', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
+            $table->unsignedInteger('id_carrera');
             $table->string('nombre');
+            $table->string('paterno');
+            $table->string('materno');
             $table->integer('control');
             $table->bigInteger('celular');
             $table->string('carrera');
@@ -23,6 +26,8 @@ class CreateTAlumnosTable extends Migration
             $table->string('procedencia');
             $table->date('fecha_ingreso');
             $table->timestamps();
+
+            $table->foreign('id_carrera')->references('id')->on('t_cat_carreras');
         });
     }
 

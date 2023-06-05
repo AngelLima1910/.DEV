@@ -26,11 +26,11 @@ DROP TABLE IF EXISTS `failed_jobs`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `failed_jobs` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
-  `uuid` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `connection` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `queue` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `payload` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `exception` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `uuid` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `connection` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `queue` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `payload` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `exception` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `failed_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`)
@@ -55,7 +55,7 @@ DROP TABLE IF EXISTS `migrations`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `migrations` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
-  `migration` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch` int NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -67,7 +67,7 @@ CREATE TABLE `migrations` (
 
 LOCK TABLES `migrations` WRITE;
 /*!40000 ALTER TABLE `migrations` DISABLE KEYS */;
-INSERT INTO `migrations` VALUES (1,'2014_10_12_000000_create_users_table',1),(2,'2014_10_12_100000_create_password_resets_table',1),(3,'2019_08_19_000000_create_failed_jobs_table',1),(4,'2019_12_14_000001_create_personal_access_tokens_table',1),(5,'2023_05_29_045827_create_t_alumnos_table',1),(6,'2023_05_30_010126_create_t_creditos_table',1),(7,'2023_05_30_013028_create_t_cat_carreras_table',1),(8,'2023_05_30_013049_create_t_cat_creditos_table',1),(9,'2023_06_03_011358_create_t_cat_periodos',1);
+INSERT INTO `migrations` VALUES (1,'2014_10_12_000000_create_users_table',1),(2,'2014_10_12_100000_create_password_resets_table',1),(3,'2019_08_19_000000_create_failed_jobs_table',1),(4,'2019_12_14_000001_create_personal_access_tokens_table',1),(5,'2023_06_03_183142_create_t_cat_carreras_table',1),(6,'2023_06_03_183206_create_t_cat_periodos_table',1),(7,'2023_06_03_183228_create_t_cat_creditos_table',1),(8,'2023_06_03_183346_create_t_alumnos_table',1),(9,'2023_06_03_183400_create_t_creditos_table',1);
 /*!40000 ALTER TABLE `migrations` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -79,8 +79,8 @@ DROP TABLE IF EXISTS `password_resets`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `password_resets` (
-  `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `token` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   KEY `password_resets_email_index` (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -104,11 +104,11 @@ DROP TABLE IF EXISTS `personal_access_tokens`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `personal_access_tokens` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
-  `tokenable_type` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `tokenable_type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `tokenable_id` bigint unsigned NOT NULL,
-  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `token` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `abilities` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `token` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `abilities` text COLLATE utf8mb4_unicode_ci,
   `last_used_at` timestamp NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
@@ -135,21 +135,23 @@ DROP TABLE IF EXISTS `t_alumnos`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `t_alumnos` (
-  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
-  `id_carrera` bigint unsigned NOT NULL,
-  `nombre` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `id_carrera` int unsigned NOT NULL,
+  `nombre` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `paterno` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `materno` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `control` int NOT NULL,
   `celular` bigint NOT NULL,
-  `carrera` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `carrera` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `fecha_nac` date NOT NULL,
-  `procedencia` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `procedencia` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `fecha_ingreso` date NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `carreraFk_idx` (`id_carrera`),
-  CONSTRAINT `carreraFk` FOREIGN KEY (`id_carrera`) REFERENCES `t_cat_carreras` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  KEY `t_alumnos_id_carrera_foreign` (`id_carrera`),
+  CONSTRAINT `t_alumnos_id_carrera_foreign` FOREIGN KEY (`id_carrera`) REFERENCES `t_cat_carreras` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -158,6 +160,7 @@ CREATE TABLE `t_alumnos` (
 
 LOCK TABLES `t_alumnos` WRITE;
 /*!40000 ALTER TABLE `t_alumnos` DISABLE KEYS */;
+INSERT INTO `t_alumnos` VALUES (1,1,'Angel','Lima','López',181190120,5547601941,'1','2000-10-19','Conalep Tlalpan I','2018-08-27','2023-06-04 00:59:19','2023-06-04 01:11:29');
 /*!40000 ALTER TABLE `t_alumnos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -169,13 +172,13 @@ DROP TABLE IF EXISTS `t_cat_carreras`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `t_cat_carreras` (
-  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `descripcion` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `descripcion` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -184,6 +187,7 @@ CREATE TABLE `t_cat_carreras` (
 
 LOCK TABLES `t_cat_carreras` WRITE;
 /*!40000 ALTER TABLE `t_cat_carreras` DISABLE KEYS */;
+INSERT INTO `t_cat_carreras` VALUES (1,'Ing. en Sistemas Computacionales','1',NULL,NULL),(2,'Ing. Gestión Empresarial','2',NULL,NULL),(3,'Ing. Industrial','3',NULL,NULL);
 /*!40000 ALTER TABLE `t_cat_carreras` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -195,13 +199,13 @@ DROP TABLE IF EXISTS `t_cat_creditos`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `t_cat_creditos` (
-  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `descripcion` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `descripcion` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -210,6 +214,7 @@ CREATE TABLE `t_cat_creditos` (
 
 LOCK TABLES `t_cat_creditos` WRITE;
 /*!40000 ALTER TABLE `t_cat_creditos` DISABLE KEYS */;
+INSERT INTO `t_cat_creditos` VALUES (1,'Crédito Deportivo','Primer crédito',NULL,NULL),(2,'Crédito Cultural','Segundo crédito',NULL,NULL),(3,'Crédito Civico','Tercer crédito',NULL,NULL);
 /*!40000 ALTER TABLE `t_cat_creditos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -221,13 +226,13 @@ DROP TABLE IF EXISTS `t_cat_periodos`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `t_cat_periodos` (
-  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `descripcion` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `descripcion` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -236,6 +241,7 @@ CREATE TABLE `t_cat_periodos` (
 
 LOCK TABLES `t_cat_periodos` WRITE;
 /*!40000 ALTER TABLE `t_cat_periodos` DISABLE KEYS */;
+INSERT INTO `t_cat_periodos` VALUES (1,'Ene - Jun 2023','Primer periodo',NULL,NULL),(2,'Ago - Dic 2023','Segundo periodo',NULL,NULL);
 /*!40000 ALTER TABLE `t_cat_periodos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -247,28 +253,28 @@ DROP TABLE IF EXISTS `t_creditos`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `t_creditos` (
-  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
-  `id_alumnos` bigint unsigned NOT NULL,
-  `id_credito` bigint unsigned NOT NULL,
-  `id_periodos` bigint unsigned NOT NULL,
-  `credito` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `mooc` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `evidencia` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `estudiante` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `periodo` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `estatus` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `carpeta` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `id_alumnos` int unsigned NOT NULL,
+  `id_creditos` int unsigned NOT NULL,
+  `id_periodos` int unsigned NOT NULL,
+  `credito` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `mooc` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `evidencia` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `estudiante` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `periodo` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `estatus` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `carpeta` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `fecha_registro` date NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `estudianteFk_idx` (`id_alumnos`),
-  KEY `creditoFk_idx` (`id_credito`),
-  KEY `periodoFk_idx` (`id_periodos`),
-  CONSTRAINT `creditoFk` FOREIGN KEY (`id_credito`) REFERENCES `t_cat_creditos` (`id`),
-  CONSTRAINT `estudianteFk` FOREIGN KEY (`id_alumnos`) REFERENCES `t_alumnos` (`id`),
-  CONSTRAINT `periodoFk` FOREIGN KEY (`id_periodos`) REFERENCES `t_cat_periodos` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  KEY `t_creditos_id_alumnos_foreign` (`id_alumnos`),
+  KEY `t_creditos_id_creditos_foreign` (`id_creditos`),
+  KEY `t_creditos_id_periodos_foreign` (`id_periodos`),
+  CONSTRAINT `t_creditos_id_alumnos_foreign` FOREIGN KEY (`id_alumnos`) REFERENCES `t_alumnos` (`id`),
+  CONSTRAINT `t_creditos_id_creditos_foreign` FOREIGN KEY (`id_creditos`) REFERENCES `t_cat_creditos` (`id`),
+  CONSTRAINT `t_creditos_id_periodos_foreign` FOREIGN KEY (`id_periodos`) REFERENCES `t_cat_periodos` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -277,6 +283,7 @@ CREATE TABLE `t_creditos` (
 
 LOCK TABLES `t_creditos` WRITE;
 /*!40000 ALTER TABLE `t_creditos` DISABLE KEYS */;
+INSERT INTO `t_creditos` VALUES (1,1,2,1,'2','certificadoMOOC.pdf','LESLIE.pdf','1','1','En trámite','Carpeta 009-2023-01','2023-06-02','2023-06-05 08:29:47','2023-06-05 08:32:58');
 /*!40000 ALTER TABLE `t_creditos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -289,17 +296,17 @@ DROP TABLE IF EXISTS `users`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `users` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `user` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `user` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
-  `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `remember_token` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `users_email_unique` (`email`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -308,8 +315,86 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` VALUES (1,'admin','angellima200@hotmail.com','admin',NULL,'$2y$10$fPqkLbpH2ZWg7DUN2ueWHuLHUV4kqWkwH8YqK46rwb0Y7p9jsrQgC',NULL,'2023-06-04 00:57:19','2023-06-04 00:57:19');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Temporary view structure for view `v_creditos`
+--
+
+DROP TABLE IF EXISTS `v_creditos`;
+/*!50001 DROP VIEW IF EXISTS `v_creditos`*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `v_creditos` AS SELECT 
+ 1 AS `id`,
+ 1 AS `credito`,
+ 1 AS `mooc`,
+ 1 AS `evidencia`,
+ 1 AS `estudiante`,
+ 1 AS `periodo`,
+ 1 AS `estatus`,
+ 1 AS `carpeta`,
+ 1 AS `fechaReg`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary view structure for view `v_estudiantes`
+--
+
+DROP TABLE IF EXISTS `v_estudiantes`;
+/*!50001 DROP VIEW IF EXISTS `v_estudiantes`*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `v_estudiantes` AS SELECT 
+ 1 AS `id`,
+ 1 AS `nombreAlumno`,
+ 1 AS `apellidoPaterno`,
+ 1 AS `apellidoMaterno`,
+ 1 AS `numeroControl`,
+ 1 AS `celular`,
+ 1 AS `carrera`,
+ 1 AS `fechaNac`,
+ 1 AS `procedencia`,
+ 1 AS `ingreso`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Final view structure for view `v_creditos`
+--
+
+/*!50001 DROP VIEW IF EXISTS `v_creditos`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `v_creditos` AS select `t_creditos`.`id` AS `id`,`t_cat_creditos`.`nombre` AS `credito`,`t_creditos`.`mooc` AS `mooc`,`t_creditos`.`evidencia` AS `evidencia`,`t_alumnos`.`nombre` AS `estudiante`,`t_cat_periodos`.`nombre` AS `periodo`,`t_creditos`.`estatus` AS `estatus`,`t_creditos`.`carpeta` AS `carpeta`,`t_creditos`.`fecha_registro` AS `fechaReg` from (((`t_creditos` join `t_cat_creditos` on((`t_creditos`.`id_creditos` = `t_cat_creditos`.`id`))) join `t_alumnos` on((`t_creditos`.`id_alumnos` = `t_alumnos`.`id`))) join `t_cat_periodos` on((`t_creditos`.`id_periodos` = `t_cat_periodos`.`id`))) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `v_estudiantes`
+--
+
+/*!50001 DROP VIEW IF EXISTS `v_estudiantes`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `v_estudiantes` AS select `t_alumnos`.`id` AS `id`,`t_alumnos`.`nombre` AS `nombreAlumno`,`t_alumnos`.`paterno` AS `apellidoPaterno`,`t_alumnos`.`materno` AS `apellidoMaterno`,`t_alumnos`.`control` AS `numeroControl`,`t_alumnos`.`celular` AS `celular`,`t_cat_carreras`.`nombre` AS `carrera`,`t_alumnos`.`fecha_nac` AS `fechaNac`,`t_alumnos`.`procedencia` AS `procedencia`,`t_alumnos`.`fecha_ingreso` AS `ingreso` from (`t_alumnos` join `t_cat_carreras` on((`t_alumnos`.`id_carrera` = `t_cat_carreras`.`id`))) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -320,4 +405,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-06-02 21:06:28
+-- Dump completed on 2023-06-04 20:38:47

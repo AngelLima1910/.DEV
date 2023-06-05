@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Alumno;
 use App\Models\catCredito;
 use App\Models\Credito;
+use App\Models\listadoCreditos;
 use App\Models\Periodo;
 use Illuminate\Http\Request;
 
@@ -24,7 +25,7 @@ class Creditos extends Controller
     public function index()
     {
         $titulo = 'Creditos';
-        $items3 = Credito::all();
+        $items3 = listadoCreditos::all();
         return view('modules/admin/creditos/index', compact('titulo', 'items3'));
     }
 
@@ -52,10 +53,21 @@ class Creditos extends Controller
     public function guardarArchivos(Request $request)
     {
         $item = new Credito();
+        $item->id_creditos = $request->credito;
         $item->credito = $request->credito;
-        $item->mooc = $request->file('mooc')->store('public');
-        $item->evidencia = $request->file('evidencia')->store('public');
+        if ($request->hasFile("mooc")) {
+            $file = $request->file("mooc");
+            $file->move(public_path().'/pdf/', $file->getClientOriginalName());
+            $item->mooc = $file->getClientOriginalName();          
+        }
+        if ($request->hasFile("evidencia")) {
+            $file = $request->file("evidencia");
+            $file->move(public_path().'/pdf/', $file->getClientOriginalName());
+            $item->evidencia = $file->getClientOriginalName();          
+        }
+        $item->id_alumnos = $request->estudiante;
         $item->estudiante = $request->estudiante;
+        $item->id_periodos = $request->periodo;
         $item->periodo = $request->periodo;
         $item->estatus = $request->estatus;
         $item->carpeta = $request->carpeta;
@@ -70,9 +82,11 @@ class Creditos extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function mostrarCreditos($id)
     {
-        //
+        $titulo = 'Eliminar registro';
+        $items = Credito::find($id);
+        return view('modules/admin/creditos/delete', compact('titulo', 'items'));
     }
 
     /**
@@ -84,10 +98,11 @@ class Creditos extends Controller
     public function editarArchivos($id)
     {
         $titulo = 'Actualizar creditos';
-        $items = catCredito::find($id);
-        $items2 = Alumno::find($id);
-        $items4 = Periodo::find($id);
-        return view('modules/admin/creditos/edit', compact('titulo', 'items', 'items2', 'items4'));
+        $items = Credito::find($id);
+        $items2 = catCredito::all();
+        $items4 = Alumno::all();
+        $items5 = Periodo::all();
+        return view('modules/admin/creditos/edit', compact('titulo', 'items', 'items2', 'items4', 'items5'));
     }
 
     /**
@@ -100,10 +115,21 @@ class Creditos extends Controller
     public function actualizarArchivos(Request $request, $id)
     {
         $item = Credito::find($id);
+        $item->id_creditos = $request->credito;
         $item->credito = $request->credito;
-        $item->mooc = $request->file('mooc')->store('public');
-        $item->evidencia = $request->file('evidencia')->store('public');
+        if ($request->hasFile("mooc")) {
+            $file = $request->file("mooc");
+            $file->move(public_path().'/pdf/', $file->getClientOriginalName());
+            $item->mooc = $file->getClientOriginalName();          
+        }
+        if ($request->hasFile("evidencia")) {
+            $file = $request->file("evidencia");
+            $file->move(public_path().'/pdf/', $file->getClientOriginalName());
+            $item->evidencia = $file->getClientOriginalName();          
+        }
+        $item->id_alumnos = $request->estudiante;
         $item->estudiante = $request->estudiante;
+        $item->id_periodos = $request->periodo;
         $item->periodo = $request->periodo;
         $item->estatus = $request->estatus;
         $item->carpeta = $request->carpeta;
@@ -118,8 +144,12 @@ class Creditos extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function eliminarCreditos($id, $file)
     {
-        //
+        $item = Credito::find($id);
+        unlink(public_path('/pdf/' . $file->mooc));
+        unlink(public_path('/pdf/' . $file->evidencia));
+        $item->delete();
+        return redirect('/creditos');
     }
 }

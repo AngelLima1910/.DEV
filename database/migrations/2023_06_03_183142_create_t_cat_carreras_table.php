@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTCatCreditosTable extends Migration
+class CreateTCatCarrerasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class CreateTCatCreditosTable extends Migration
      */
     public function up()
     {
-        Schema::create('t_cat_creditos', function (Blueprint $table) {
-            $table->id();
+        Schema::create('t_cat_carreras', function (Blueprint $table) {
+            $table->increments('id');
             $table->string('nombre');
             $table->text('descripcion');
             $table->timestamps();
@@ -28,6 +28,6 @@ class CreateTCatCreditosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('t_cat_creditos');
+        Schema::dropIfExists('t_cat_carreras');
     }
 }
