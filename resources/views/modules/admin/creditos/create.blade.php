@@ -29,6 +29,10 @@
                         @foreach ($items2 as $item2)
                             <option value="{{$item2->id}}">
                                 {{$item2->nombre}}
+                                {{$item2->paterno}}
+                                {{$item2->materno}}
+                                -
+                                {{$item2->control}}
                             </option>
                         @endforeach
                     </select>
@@ -43,9 +47,12 @@
                     </select>
                     <label for="">Estatus</label>
                     <select name="estatus" class="form-control" required>
-                        <option value="">Selecciona una opción</option>
-                        <option value="En trámite">En trámite</option>
-                        <option value="Liberado">Liberado</option>
+                        <option value="">Selecciona el estatus</option>
+                        @foreach ($items6 as $item)
+                            <option value="{{$item->id}}">
+                                {{$item->nombre}}
+                            </option>
+                        @endforeach
                     </select>
                     <label for="">Carpeta</label>
                     <input type="text" class="form-control" name="carpeta" required>

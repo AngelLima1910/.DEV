@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Alumno;
 use App\Models\catCredito;
 use App\Models\Credito;
+use App\Models\Estado;
 use App\Models\listadoCreditos;
 use App\Models\Periodo;
 use Illuminate\Http\Request;
@@ -40,7 +41,8 @@ class Creditos extends Controller
         $items = catCredito::all();
         $items2 = Alumno::all();
         $items4 = Periodo::all();
-        return view('modules/admin/creditos/create', compact('titulo', 'items', 'items2', 'items4'));
+        $items6 = Estado::all();
+        return view('modules/admin/creditos/create', compact('titulo', 'items', 'items2', 'items4', 'items6'));
     }
 
     /**
@@ -69,6 +71,7 @@ class Creditos extends Controller
         $item->estudiante = $request->estudiante;
         $item->id_periodos = $request->periodo;
         $item->periodo = $request->periodo;
+        $item->id_estatus = $request->estatus;
         $item->estatus = $request->estatus;
         $item->carpeta = $request->carpeta;
         $item->fecha_registro = $request->fecha_registro;
@@ -102,7 +105,8 @@ class Creditos extends Controller
         $items2 = catCredito::all();
         $items4 = Alumno::all();
         $items5 = Periodo::all();
-        return view('modules/admin/creditos/edit', compact('titulo', 'items', 'items2', 'items4', 'items5'));
+        $items6 = Estado::all();
+        return view('modules/admin/creditos/edit', compact('titulo', 'items', 'items2', 'items4', 'items5', 'items6'));
     }
 
     /**
@@ -137,6 +141,7 @@ class Creditos extends Controller
         $item->save();
         return redirect('/creditos');
     }
+
 
     /**
      * Remove the specified resource from storage.

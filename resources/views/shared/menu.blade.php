@@ -12,6 +12,11 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="{{ route('constancia') }}">
+                        Constancias <i class="fa-solid fa-address-book"></i>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="{{ route('creditos') }}">
                         Créditos <i class="fa-brands fa-font-awesome"></i>
                     </a>

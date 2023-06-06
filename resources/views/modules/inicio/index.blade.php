@@ -4,6 +4,12 @@
     <header class="masthead text-center text-white">
         <div class="masthead-content">
             <div class="container px-5">
+                <div class="position-absolute top-0 start-0">
+                    <img src="{{ asset('img/tecnm.png') }}" style="height: 100px; width: 125px">
+                </div>
+                <div class="position-absolute top-0 end-0">
+                    <img src="{{ asset('img/ITMA II.png') }}" style="height: 100px; width: 125px">
+                </div>
                 <h1 class="masthead-heading mb-0">Créditos extraescolares</h1>
             </div>
         </div>

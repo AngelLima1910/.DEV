@@ -16,7 +16,6 @@
                         <th class="text-center">Estudiante</th>
                         <th class="text-center">Periodo escolar</th>
                         <th class="text-center">Estatus</th>
-                        <th class="text-center">Liberación</th>
                         <th class="text-center">Carpeta física</th>
                         <th class="text-center">Fecha de registro</th>
                         <th class="text-center">Editar</th>
@@ -30,8 +29,14 @@
                             <td class="text-center"><a href="pdf/{{ $item3->evidencia }}" target="blank_" class="btn btn-outline-primary"> <i class="fa-solid fa-eye"></i> </a></td>
                             <td class="text-center">{{$item3->estudiante}}</td>
                             <td class="text-center">{{$item3->periodo}}</td>
-                            <td class="text-center"><a href="" class="btn btn-outline-warning"> <i class="fa-solid fa-folder-open"></i> </a></td>
-                            <td class="text-center"><a href="" class="btn btn-outline-success">Generar liberación</a></td>
+                            <td class="text-center">
+                                <form action="{{ route('creditos', $item3->id) }}" method="POST">
+                                    @csrf
+                                    @method('POST')
+                                    <input name="estatus" value="{{$item3->estatus}}" hidden>
+                                    <button class="btn btn-outline-warning"> <i class="fa-solid fa-folder-open"></i></button>
+                                </form>
+                            </td>
                             <td class="text-center">{{$item3->carpeta}}</td>
                             <td class="text-center">{{$item3->fechaReg}}</td>
                             <td class="text-center"><a href="{{ route('editarArchivos', $item3->id) }}" class="btn btn-outline-warning"> <i class="fa-solid fa-pen-to-square"></i> </a></td>

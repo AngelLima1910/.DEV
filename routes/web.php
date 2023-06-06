@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Admins;
+use App\Http\Controllers\Constancias;
 use App\Http\Controllers\Creditos;
 use Illuminate\Support\Facades\Route;
 
@@ -27,3 +28,8 @@ Route::get('/mostrarCreditos/{id}', [Creditos::class, 'mostrarCreditos'])->name(
 Route::delete('/eliminarCreditos/{id}', [Creditos::class, 'eliminarCreditos'])->name('eliminarCreditos');
 Route::get('/editar/{id}', [Creditos::class, 'editarArchivos'])->name('editarArchivos');
 Route::put('/actualizar/{id}', [Creditos::class, 'actualizarArchivos'])->name('actualizarArchivos');
+
+Route::get('/constancias', [Constancias::class, 'index'])->name('constancia');
+Route::get('constancias/pdf/{id}', [Constancias::class, 'pdf'])->name('constancias.pdf');
+Route::get('/constanciaNueva', [Constancias::class, 'agregarConstancia'])->name('agregarConstancia');
+Route::post('/guardarConstancia', [Constancias::class, 'guardarConstancia'])->name('guardarConstancia');

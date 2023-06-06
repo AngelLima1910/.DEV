@@ -18,6 +18,7 @@ class CreateTCreditosTable extends Migration
             $table->unsignedInteger('id_alumnos');
             $table->unsignedInteger('id_creditos');
             $table->unsignedInteger('id_periodos');
+            $table->unsignedInteger('id_estatus');
             $table->string('credito');
             $table->string('mooc');
             $table->string('evidencia');
@@ -30,6 +31,7 @@ class CreateTCreditosTable extends Migration
             $table->foreign('id_alumnos')->references('id')->on('t_alumnos');
             $table->foreign('id_creditos')->references('id')->on('t_cat_creditos');
             $table->foreign('id_periodos')->references('id')->on('t_cat_periodos');
+            $table->foreign('id_estatus')->references('id')->on('t_cat_estatus');
         });
     }
 

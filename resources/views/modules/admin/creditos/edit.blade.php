@@ -36,10 +36,18 @@
                             @if ($estudiante->id == $items->id_alumnos)
                             <option value="{{$estudiante->id}}" selected>
                                 {{$estudiante->nombre}}
+                                {{$estudiante->paterno}}
+                                {{$estudiante->materno}}
+                                -
+                                {{$estudiante->control}}
                             </option>
                             @else
                             <option value="{{$estudiante->id}}">
                                 {{$estudiante->nombre}}
+                                {{$estudiante->paterno}}
+                                {{$estudiante->materno}}
+                                -
+                                {{$estudiante->control}}
                             </option>
                             @endif
                         @endforeach
@@ -62,8 +70,17 @@
                     <label for="">Estatus</label>
                     <select name="estatus" class="form-control" required>
                         <option value="">Selecciona una opción</option>
-                        <option value="En trámite">En trámite</option>
-                        <option value="Liberado">Liberado</option>
+                        @foreach ($items6 as $estatus)
+                            @if ($estatus->id == $items->id_estatus)
+                                <option value="{{$estatus->id}}" selected>
+                                    {{$estatus->nombre}}
+                                </option>
+                            @else
+                            <option value="{{$estatus->id}}">
+                                {{$estatus->nombre}}
+                            </option>
+                            @endif
+                        @endforeach
                     </select>
                     <label for="">Carpeta</label>
                     <input type="text" class="form-control" name="carpeta" required value="{{ $items->carpeta }}">

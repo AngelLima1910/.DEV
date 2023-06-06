@@ -29,7 +29,11 @@
                                 <td class="text-center">{{ $item->numeroControl }}</td>
                                 <td class="text-center">{{ $item->celular }}</td>
                                 <td class="text-center">{{ $item->carrera }}</td>
-                                <td class="text-center">{{ $item->fechaNac }}</td>
+                                <td class="text-center">
+                                    @php
+                                        calcularEdad($item->fechaNac);
+                                    @endphp
+                                </td>
                                 <td class="text-center">{{ $item->procedencia }}</td>
                                 <td class="text-center">{{ $item->ingreso }}</td>
                                 <td class="text-center">

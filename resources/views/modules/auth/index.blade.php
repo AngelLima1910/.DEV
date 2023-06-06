@@ -3,6 +3,12 @@
     <div class="container" style="background: https://img.freepik.com/fotos-premium/fondo-triangular-colorido-patron-triangular_574545-1478.jpg">
         <div class="row">
             <div class="col">
+                <div class="position-absolute top-0 start-0">
+                    <img src="{{ asset('img/tecnm.png') }}" style="height: 100px; width: 125px">
+                </div>
+                <div class="position-absolute top-0 end-0">
+                    <img src="{{ asset('img/ITMA II.png') }}" style="height: 100px; width: 125px">
+                </div>
                 <div class="login-form">
                     <h1>Orion System</h1>
                     <div class="text-center">
