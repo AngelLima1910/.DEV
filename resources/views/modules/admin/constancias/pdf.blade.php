@@ -7,32 +7,26 @@
     <title>Constancia</title>
 </head>
 <body>
-    <table class="table table-sm display responsive nowrap mt-4" style="width: 100%" id="table">
+    <table border="1">
         <thead>
-            <th class="text-center">Nombre(s)</th>
-            <th class="text-center">Apellido Paterno</th>
-            <th class="text-center">Apellido Materno</th>
-            <th class="text-center">Número de control</th>
-            <th class="text-center">Actividad</th>
-            <th class="text-center">Grupo</th>
-            <th class="text-center">Periodo</th>
-            <th class="text-center">Horas acreditadas</th>
-            <th class="text-center">Fecha</th>
+            <th class="text-center">NO DE CONTROL</th>
+            <th class="text-center">NOMBRE</th>
+            <th class="text-center">ACTIVIDAD</th>
+            <th class="text-center">GRUPO</th>
+            <th class="text-center">PERIODO ESCOLAR</th>
+            <th class="text-center">HRS ACREDITADAS</th>
+            <th class="text-center">FECHA</th>
         </thead>
         <tbody>
-            @foreach ($recogerData as $item)
-                <tr>
-                    <td>{{$item->nombre}}</td>
-                    <td>{{$item->paterno}}</td>
-                    <td>{{$item->materno}}</td>
-                    <td>{{$item->control}}</td>
-                    <td>{{$item->actividad}}</td>
-                    <td>{{$item->grupo}}</td>
-                    <td>{{$item->periodo}}</td>
-                    <td>{{$item->horaAcreditada}}</td>
-                    <td>{{$item->fecha}}</td>
-                </tr>
-            @endforeach
+            <tr>
+                <td>{{$recogerData->control}}</td>
+                <td>{{$recogerData->paterno}} {{$recogerData->materno}} {{$recogerData->nombre}}</td>
+                <td>{{$recogerData->actividad}}</td>
+                <td>{{$recogerData->grupo}}</td>
+                <td>{{$recogerData->periodo}}</td>
+                <td>{{$recogerData->horaAcreditada}}</td>
+                <td>{{$recogerData->fecha}}</td>
+            </tr>
         </tbody>
     </table>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>

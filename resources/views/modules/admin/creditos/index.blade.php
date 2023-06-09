@@ -19,7 +19,6 @@
                         <th class="text-center">Carpeta física</th>
                         <th class="text-center">Fecha de registro</th>
                         <th class="text-center">Editar</th>
-                        <th class="text-center">Eliminar</th>
                     </thead>
                     <tbody>
                         @foreach ($items3 as $item3)
@@ -30,17 +29,20 @@
                             <td class="text-center">{{$item3->estudiante}}</td>
                             <td class="text-center">{{$item3->periodo}}</td>
                             <td class="text-center">
-                                <form action="{{ route('creditos', $item3->id) }}" method="POST">
+                                <form action="{{ route('actualizarStatus', $item3->id) }}" method="POST">
                                     @csrf
                                     @method('POST')
                                     <input name="estatus" value="{{$item3->estatus}}" hidden>
-                                    <button class="btn btn-outline-warning"> <i class="fa-solid fa-folder-open"></i></button>
+                                    @if ($item3->id_estatus == 1)
+                                        <button class="btn btn-outline-warning"> <i class="fa-solid fa-folder-open"></i> </button>
+                                    @else
+                                        <button class="btn btn-outline-success"> <i class="fa-solid fa-folder"></i> </button>
+                                    @endif
                                 </form>
                             </td>
                             <td class="text-center">{{$item3->carpeta}}</td>
                             <td class="text-center">{{$item3->fechaReg}}</td>
                             <td class="text-center"><a href="{{ route('editarArchivos', $item3->id) }}" class="btn btn-outline-warning"> <i class="fa-solid fa-pen-to-square"></i> </a></td>
-                            <td class="text-center"><a href="{{ route('mostrarCreditos', $item3->id) }}" class="btn btn-outline-danger"> <i class="fa-solid fa-trash-can"></i> </a></td>
                         </tr>
                         @endforeach
                     </tbody>

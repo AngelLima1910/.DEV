@@ -8,14 +8,15 @@ use Illuminate\Http\Request;
 class Estado extends Controller
 {
     public function actualizarStatus(Request $request, $id) {
-        $estatus=0;
-        if ($request->estatus === 1) {
-            $estatus = 0;
+        $item = Credito::find($id);
+        $estatus = 0;
+        dd($request->id_estatus);
+        if ($request->id_estatus === 1) {
+            $estatus = 2;
         } else {
             $estatus = 1;
         }
-        $item = Credito::find($id);
-        $item->estatus = $estatus;
+        $item->id_estatus = $estatus;
         $item->save();
         return redirect('/creditos');
     }

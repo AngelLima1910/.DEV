@@ -67,7 +67,7 @@ class Admins extends Controller
         $item->procedencia = $request->procedencia;
         $item->fecha_ingreso = $request->fecha_ingreso;
         $item->save();
-        return redirect('/lista');
+        return redirect('admin/lista');
     }
 
 
@@ -119,7 +119,7 @@ class Admins extends Controller
         $item->procedencia = $request->procedencia;
         $item->fecha_ingreso = $request->fecha_ingreso;
         $item->save();
-        return redirect('/lista');
+        return redirect('admin/lista');
     }
 
     /**
@@ -132,6 +132,6 @@ class Admins extends Controller
     {   
         $item = Alumno::find($id);
         $item->delete();
-        return redirect('/lista');
+        return redirect('admin/lista');
     }
 }

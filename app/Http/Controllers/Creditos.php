@@ -76,7 +76,7 @@ class Creditos extends Controller
         $item->carpeta = $request->carpeta;
         $item->fecha_registro = $request->fecha_registro;
         $item->save();
-        return redirect('/creditos');
+        return redirect('liberacionCreditos/creditos');
     }
 
     /**
@@ -139,7 +139,7 @@ class Creditos extends Controller
         $item->carpeta = $request->carpeta;
         $item->fecha_registro = $request->fecha_registro;
         $item->save();
-        return redirect('/creditos');
+        return redirect('liberacionCreditos/creditos');
     }
 
 
@@ -155,6 +155,6 @@ class Creditos extends Controller
         unlink(public_path('/pdf/' . $file->mooc));
         unlink(public_path('/pdf/' . $file->evidencia));
         $item->delete();
-        return redirect('/creditos');
+        return redirect('liberacionCreditos/creditos');
     }
 }

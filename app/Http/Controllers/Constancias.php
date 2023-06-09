@@ -17,11 +17,10 @@ class Constancias extends Controller
         return view('modules/admin/constancias/index', compact('titulo', 'items'));
     }
 
-    public function pdf(Request $request, $id) {
-        $request->$id = $id;
-        $recogerData = listadoConstancia::find($id);
+    public function pdf($id) {
+        $recogerData = listadoConstancia::find($id);        
         $pdf = Pdf::loadView('modules/admin/constancias.pdf', compact('recogerData'));
-        return $pdf->download('creditos.pdf');
+        return $pdf->download('constancia.pdf');
 
     }
 
@@ -45,6 +44,6 @@ class Constancias extends Controller
         $item->grupo = $request->grupo;
         $item->hrsAcreditadas = $request->hrsAcreditadas;
         $item->save();
-        return redirect('/constancias');
+        return redirect('liberacionesConstancias/constancias');
     }
 }

@@ -19,7 +19,6 @@
                         <th class="text-center">Fecha</th>
                         <th class="text-center">Generar constancia</th>
                         <th class="text-center">Editar</th>
-                        <th class="text-center">Eliminar</th>
                     </thead>
                     <tbody>
                         @foreach ($items as $item)
@@ -34,7 +33,6 @@
                                 <td>{{$item->horaAcreditada}}</td>
                                 <td>{{$item->fecha}}</td>
                                 <td><a href="{{ route('constancias.pdf', $item->id) }}" class="btn btn-outline-success">Generar constancia de hrs.</a></td>
-                                <td></td>
                                 <td></td>
                             </tr>
                         @endforeach
