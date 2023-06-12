@@ -306,7 +306,7 @@ CREATE TABLE `t_constancias` (
 
 LOCK TABLES `t_constancias` WRITE;
 /*!40000 ALTER TABLE `t_constancias` DISABLE KEYS */;
-INSERT INTO `t_constancias` VALUES (1,1,1,'1','1','Futbol','1','2023-06-05','8 SIS','5 horas deportivas','2023-06-06 08:10:57','2023-06-06 08:10:57'),(2,2,1,'2','2','Futbol','1','2023-06-05','8 SIS','5 horas deportivas','2023-06-06 08:17:38','2023-06-06 08:17:38');
+INSERT INTO `t_constancias` VALUES (1,1,1,'1','1','Futbol','1','2023-06-05','8 SIS','5 horas deportivas','2023-06-06 08:10:57','2023-06-06 08:10:57'),(2,2,1,'2','2','GameClass','1','2023-06-05','8 SIS','5 horas deportivas','2023-06-06 08:17:38','2023-06-12 07:52:41');
 /*!40000 ALTER TABLE `t_constancias` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -342,7 +342,7 @@ CREATE TABLE `t_creditos` (
   CONSTRAINT `t_creditos_id_creditos_foreign` FOREIGN KEY (`id_creditos`) REFERENCES `t_cat_creditos` (`id`),
   CONSTRAINT `t_creditos_id_estatus_foreign` FOREIGN KEY (`id_estatus`) REFERENCES `t_cat_estatus` (`id`),
   CONSTRAINT `t_creditos_id_periodos_foreign` FOREIGN KEY (`id_periodos`) REFERENCES `t_cat_periodos` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -351,7 +351,7 @@ CREATE TABLE `t_creditos` (
 
 LOCK TABLES `t_creditos` WRITE;
 /*!40000 ALTER TABLE `t_creditos` DISABLE KEYS */;
-INSERT INTO `t_creditos` VALUES (1,2,2,1,1,'2','certificadoMOOC.pdf','LESLIE.pdf','2','1','1','Carpeta 009-2023-1','2023-06-05','2023-06-06 08:14:12','2023-06-06 08:14:12');
+INSERT INTO `t_creditos` VALUES (1,1,2,1,2,'2','certifiacadoMOOCAngel.pdf','lima lopez angel.pdf','1','1','2','Carpeta 009-01-2023','2023-06-09','2023-06-10 21:54:08','2023-06-11 06:28:37'),(2,2,2,1,1,'2','certificadoMOOC.pdf','LESLIE.pdf','2','1','1','Carpeta 009-01-2023','2023-06-09','2023-06-11 06:24:51','2023-06-11 06:24:51');
 /*!40000 ALTER TABLE `t_creditos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -512,4 +512,4 @@ SET character_set_client = @saved_cs_client;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-06-06 10:42:28
+-- Dump completed on 2023-06-11 21:49:11
