@@ -9,6 +9,7 @@ use App\Models\Estado;
 use App\Models\listadoCreditos;
 use App\Models\Periodo;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class Creditos extends Controller
 {
@@ -76,6 +77,7 @@ class Creditos extends Controller
         $item->carpeta = $request->carpeta;
         $item->fecha_registro = $request->fecha_registro;
         $item->save();
+        toast('Crédito agregado con exito!','success');
         return redirect('liberacionCreditos/creditos');
     }
 
@@ -139,6 +141,7 @@ class Creditos extends Controller
         $item->carpeta = $request->carpeta;
         $item->fecha_registro = $request->fecha_registro;
         $item->save();
+        toast('Crédito actualizado con exito!','warning');
         return redirect('liberacionCreditos/creditos');
     }
 

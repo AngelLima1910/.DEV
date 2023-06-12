@@ -10,15 +10,17 @@
                 <a href="{{ route('creditoNuevo') }}" class="btn btn-outline-primary"> <i class="fa-solid fa-user-plus"></i> </a>
                 <table class="table table-sm display responsive nowrap mt-4" style="width: 100%" id="table">
                     <thead>
-                        <th class="text-center">Crédito</th>
-                        <th class="text-center">Mooc</th>
-                        <th class="text-center">Evidencia o constancia</th>
-                        <th class="text-center">Estudiante</th>
-                        <th class="text-center">Periodo escolar</th>
-                        <th class="text-center">Estatus</th>
-                        <th class="text-center">Carpeta física</th>
-                        <th class="text-center">Fecha de registro</th>
-                        <th class="text-center">Editar</th>
+                        <tr>
+                            <th class="text-center">Crédito</th>
+                            <th class="text-center">Mooc</th>
+                            <th class="text-center">Evidencia o constancia</th>
+                            <th class="text-center">Número de control</th>
+                            <th class="text-center">Periodo escolar</th>
+                            <th class="text-center">Estatus</th>
+                            <th class="text-center">Carpeta física</th>
+                            <th class="text-center">Fecha de registro</th>
+                            <th class="text-center">Editar</th>
+                        </tr>
                     </thead>
                     <tbody>
                         @foreach ($items3 as $item3)
@@ -33,10 +35,17 @@
                                     @csrf
                                     @method('POST')
                                     <input name="estatus" value="{{$item3->estatus}}" hidden>
-                                    @if ($item3->id_estatus == 1)
-                                        <button class="btn btn-outline-warning"> <i class="fa-solid fa-folder-open"></i> </button>
-                                    @else
-                                        <button class="btn btn-outline-success"> <i class="fa-solid fa-folder"></i> </button>
+                                    @if ($item3->estatus == 'En trámite')
+                                        <button class="btn btn-outline-warning"> 
+                                            {{ $item3->estatus }}
+                                            <i class="fa-solid fa-folder-open"></i> 
+                                        </button>
+                                    @endif
+                                    @if ($item3->estatus == 'Liberado')
+                                        <button class="btn btn-outline-success" disabled data-bs-toggle="button" autocomplete="off"> 
+                                            {{$item3->estatus }}
+                                            <i class="fa-solid fa-folder"></i> 
+                                        </button>
                                     @endif
                                 </form>
                             </td>

@@ -67,6 +67,7 @@ class Admins extends Controller
         $item->procedencia = $request->procedencia;
         $item->fecha_ingreso = $request->fecha_ingreso;
         $item->save();
+        toast('Usuario agregado con exito!','success');
         return redirect('admin/lista');
     }
 
@@ -119,6 +120,7 @@ class Admins extends Controller
         $item->procedencia = $request->procedencia;
         $item->fecha_ingreso = $request->fecha_ingreso;
         $item->save();
+        toast('Usuario actualizado con exito!','warning');
         return redirect('admin/lista');
     }
 
@@ -132,6 +134,7 @@ class Admins extends Controller
     {   
         $item = Alumno::find($id);
         $item->delete();
+        toast('Usuario eliminado con exito!','info');
         return redirect('admin/lista');
     }
 }

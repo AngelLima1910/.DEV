@@ -45,8 +45,8 @@
                     <input type="text" name="grupo" class="form-control" required>
                     <label for="">Hrs. Acreditadas</label>
                     <input type="text" name="hrsAcreditadas" class="form-control" required>
-                    <button class="btn btn-outline-primary mt-3">Guardar</button>
-                    <a href="{{ route('constancia') }}" class="btn btn-outline-secondary mt-3">Regresar</a>
+                    <button class="btn btn-outline-primary mt-3">Guardar <i class="fa-solid fa-user-plus"></i> </button>
+                    <a href="{{ route('constancia') }}" class="btn btn-outline-secondary mt-3"><i class="fa-solid fa-rotate-left"></i> Regresar</a>
                 </form>
             </div>
         </div>

@@ -23,6 +23,7 @@ class AuthController extends Controller
         if (Auth::attempt($credenciales)) {
             return redirect()->route('inicio');
         } else {
+            toast('Usuario y/o  password incorrectos!','error');
             return back()->withInput($credenciales);
         }
     }

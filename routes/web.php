@@ -40,4 +40,6 @@
         Route::get('constancias/pdf/{id}', [Constancias::class, 'pdf'])->name('constancias.pdf');
         Route::get('/constanciaNueva', [Constancias::class, 'agregarConstancia'])->name('agregarConstancia');
         Route::post('/guardarConstancia', [Constancias::class, 'guardarConstancia'])->name('guardarConstancia');
+        Route::get('/editarConstancias/{id}', [Constancias::class, 'editarConstancias'])->name('editarConstancias');
+        Route::put('/actualizarConstancias/{id}', [Constancias::class, 'actualizarConstancias'])->name('actualizarConstancias');
     });

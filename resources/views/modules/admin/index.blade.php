@@ -8,17 +8,19 @@
                 <a href="{{ route('agregarEstudiante') }}" class="btn btn-outline-primary"> <i class="fa-solid fa-user-plus"></i></a>
                 <table class="table table-sm display responsive nowrap mt-4" style="width: 100%" id="table">
                     <thead>
-                        <th class="text-center">Nombre(s)</th>
-                        <th class="text-center">Apellido Paterno</th>
-                        <th class="text-center">Apellido Materno</th>
-                        <th class="text-center">Número de control</th>
-                        <th class="text-center">Teléfono celular</th>
-                        <th class="text-center">Carrera</th>
-                        <th class="text-center">Edad</th>
-                        <th class="text-center">Escuela de procedencia</th>
-                        <th class="text-center">Fecha de ingreso</th>
-                        <th class="text-center">Editar</th>
-                        <th class="text-center">Eliminar</th>
+                        <tr>
+                            <th class="text-center">Nombre(s)</th>
+                            <th class="text-center">Apellido Paterno</th>
+                            <th class="text-center">Apellido Materno</th>
+                            <th class="text-center">Número de control</th>
+                            <th class="text-center">Teléfono celular</th>
+                            <th class="text-center">Carrera</th>
+                            <th class="text-center">Edad</th>
+                            <th class="text-center">Escuela de procedencia</th>
+                            <th class="text-center">Fecha de ingreso</th>
+                            <th class="text-center">Editar</th>
+                            <th class="text-center">Eliminar</th>
+                        </tr>
                     </thead>
                     <tbody>
                         @foreach ($items as $item)
