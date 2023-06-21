@@ -20,7 +20,7 @@ class Constancias extends Controller
     public function pdf($id) {
         $recogerData = listadoConstancia::find($id);        
         $pdf = PDF::loadView('modules/admin/constancias.pdf', compact('recogerData'));
-        return $pdf->download('constancia.pdf');
+        return $pdf->stream('constancia.pdf');
 
     }
 
@@ -44,7 +44,7 @@ class Constancias extends Controller
         $item->grupo = $request->grupo;
         $item->hrsAcreditadas = $request->hrsAcreditadas;
         $item->save();
-        toast('Constancia agregada con exito!','warning');
+        toast('Constancia agregada con exito!','success');
         return redirect('liberacionesConstancias/constancias');
     }
 

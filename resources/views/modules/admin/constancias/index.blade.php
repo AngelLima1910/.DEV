@@ -34,7 +34,7 @@
                                 <td>{{$item->periodo}}</td>
                                 <td>{{$item->horaAcreditada}}</td>
                                 <td>{{$item->fecha}}</td>
-                                <td><a href="{{ route('constancias.pdf', $item->id) }}" class="btn btn-outline-success">Generar constancia de hrs.</a></td>
+                                <td><a href="{{ route('constancias.pdf', $item->id) }}" target="blank_" class="btn btn-outline-success"> <i class="fa-solid fa-print"></i> </a></td>
                                 <td><a href="{{ route('editarConstancias', $item->id) }}" class="btn btn-outline-warning"> <i class="fa-solid fa-pen-to-square"></i> </a></td>
                             </tr>
                         @endforeach

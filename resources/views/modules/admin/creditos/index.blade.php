@@ -26,8 +26,8 @@
                         @foreach ($items3 as $item3)
                         <tr>
                             <td class="text-center">{{$item3->credito}}</td>
-                            <td class="text-center"><a href="pdf/{{ $item3->mooc }}" target="blank_" class="btn btn-outline-primary"> <i class="fa-solid fa-eye"></i> </a></td>
-                            <td class="text-center"><a href="pdf/{{ $item3->evidencia }}" target="blank_" class="btn btn-outline-primary"> <i class="fa-solid fa-eye"></i> </a></td>
+                            <td class="text-center"><a href="/pdf/{{ $item3->mooc }}" target="blank_" class="btn btn-outline-primary"> <i class="fa-solid fa-eye"></i> </a></td>
+                            <td class="text-center"><a href="/pdf/{{ $item3->evidencia }}" target="blank_" class="btn btn-outline-primary"> <i class="fa-solid fa-eye"></i> </a></td>
                             <td class="text-center">{{$item3->estudiante}}</td>
                             <td class="text-center">{{$item3->periodo}}</td>
                             <td class="text-center">
@@ -35,7 +35,7 @@
                                     @csrf
                                     @method('POST')
                                     <input name="estatus" value="{{$item3->estatus}}" hidden>
-                                    @if ($item3->estatus == 'En trámite')
+                                    @if ($item3->estatus == 1)
                                         <button class="btn btn-outline-warning"> 
                                             {{ $item3->estatus }}
                                             <i class="fa-solid fa-folder-open"></i> 
